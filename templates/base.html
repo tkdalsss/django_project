@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
+    <title>{% block page_title %}{% endblock page_title %}| Dbnb</title>
 </head>
 <body>
-
-    {% include "partials/header.html" %}
+    <header>
+        {% include "partials/nav.html" %}
+        {% block search-bar %}
+            <form method="get" action="{% url "rooms:search" %}">
+                <input name="city" placeholder="Search by City" />
+            </form>
+        {% endblock search-bar %}
+    </header>
 
     {% block content %}{% endblock %}
 
