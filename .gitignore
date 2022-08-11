@@ -163,4 +163,5 @@ uploads/
 
 secrets.json
 
+Pipfile
 Pipfile.lock
