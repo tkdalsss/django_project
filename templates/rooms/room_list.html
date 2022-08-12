@@ -2,8 +2,6 @@
 
 {% block content %}
 
-    {{now}}
-
     {% for room in rooms %} <!-- rooms(render, request) -> self(ListView) -->
         <h3> 
             <a href="{% url "rooms:detail" room.pk %}">
