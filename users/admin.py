@@ -13,7 +13,7 @@ class CustomUserAdmin(UserAdmin):
             "Custom Profile",
             {
                 "fields":(
-                    "avatar", "gender", "bio", "birthdate", "language", "currency", "superhost"
+                    "avatar", "gender", "bio", "birthdate", "language", "currency", "superhost", "login_method"
                 )
             }
         ),
@@ -23,7 +23,7 @@ class CustomUserAdmin(UserAdmin):
 
     list_display = (
         "username", "first_name", "last_name", "email", "is_active", "language",
-        "currency", "superhost", "is_staff", "is_superuser"
+        "currency", "superhost", "is_staff", "is_superuser", "login_method"
     )
 
     # list_display = ('username', 'email', 'gender', 'language', 'currency', 'superhost')

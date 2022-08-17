@@ -31,6 +31,14 @@ class User(AbstractUser):
         (CURRENCY_USD, "USD"),
         (CURRENCY_KRW, "KRW"),
     )
+    
+    LOGIN_GITHUB = "github"
+    LOGIN_KAKAO = "kakao"
+    
+    LOGIN_CHOICES = (
+        (LOGIN_GITHUB, "Github"),
+        (LOGIN_KAKAO, "Kakao")
+    )
 
     avatar = models.ImageField(upload_to="avatars", blank =True)
     gender = models.CharField(
@@ -47,6 +55,9 @@ class User(AbstractUser):
         default=CURRENCY_KRW
     )
     superhost = models.BooleanField(default=False)
+    login_method = models.CharField(
+        max_length=50, choices=LOGIN_CHOICES, default=LOGIN_GITHUB
+    )
 
     def __str__(self):
         return self.username
