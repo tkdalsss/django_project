@@ -3,6 +3,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="{% static "css/styles.css" %}"> <!-- designed by tailwindCSS.. -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <title>{% block page_title %}Home {% endblock page_title %}| Dbnb</title>
 </head>
 <body class="text-gray-800 mt-24">
@@ -12,10 +13,10 @@
                 <img class="w-8" src="{% static 'img/logo.png' %}" />
             </a>
             {% block search-bar %}
-            <form method="get" action="{% url "rooms:search" %}" class="w-9/12">
-                <input class="search-box w-full border px-4 text-sm font-medium placeholder-gray-600 py-2 round-sm w-64 shadow-md hover:shadow-lg focus:outline-none" 
-                name="city" placeholder="Search by City" />
-            </form>        
+                <form method="get" action="{% url "rooms:search" %}" class="w-9/12">
+                    <input class="search-box w-full border px-4 text-sm font-medium placeholder-gray-600 py-2 round-sm w-64 shadow-md hover:shadow-lg focus:outline-none" 
+                    name="city" placeholder="Search by City" />
+                </form>        
             {% endblock search-bar %}
         </div>
         {% include "partials/nav.html" %}
