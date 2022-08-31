@@ -12,18 +12,7 @@
     <div class="container lg:w-5/12 md:w-1/2 xl:w-1/4 mx-auto my-10 flex flex-col items-center p-6 border border-gray-400">
         {% include 'partials/social_login.html' %}
 
-        <div class="flex items-center w-full my-3">
-            <div class="h-px w-full bg-gray-400"></div>
-            <span class="text-gray-600 font-medium mx-2 text-sm">or</span>
-            <div class="h-px w-full bg-gray-400"></div>
-        </div>
-
-        <form method="POST" action="{% url "users:login" %}" class="w-full">
-            {% csrf_token %}
-            <input type="email" placeholder="Email" class="mb-3">
-            <input type="password" placeholder="Password" class="mb-3">
-            <button class="btn text-white bg-red-400 w-full">Login</button>
-        </form>
+        {% include 'mixins/auth/auth_form.html' with form=form cta="Log in" %}
 
         <div class="flex mt-5">
             <span class="mr-8">Don't have an acoount?</span>

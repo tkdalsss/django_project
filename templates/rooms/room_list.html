@@ -7,7 +7,7 @@
 
         <div class="flex flex-wrap mb-10">
             {% for room in rooms %} <!-- rooms(render, request) -> self(ListView) -->
-                {% include 'partials/room_card.html' with room=room %}
+                {% include 'mixins/room_card.html' with room=room %}
             {% endfor %}
         </div>
 
