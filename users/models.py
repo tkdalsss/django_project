@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 class User(AbstractUser):
@@ -40,7 +41,7 @@ class User(AbstractUser):
         (LOGIN_KAKAO, "Kakao")
     )
 
-    avatar = models.ImageField(upload_to="avatars", blank =True)
+    avatar = models.ImageField(upload_to="avatars", blank=True)
     gender = models.CharField(
         choices=GENDER_CHOICES, max_length=10, blank=True
     )
@@ -58,6 +59,9 @@ class User(AbstractUser):
     login_method = models.CharField(
         max_length=50, choices=LOGIN_CHOICES, default=LOGIN_GITHUB
     )
+
+    def get_absolute_url(self):
+        return reverse("users:profile", kwargs={"pk": self.pk})
 
     def __str__(self):
         return self.username
