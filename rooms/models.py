@@ -3,6 +3,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from core import models as core_models
 from users import models as user_models
+from cal import Calendar
 
 class AbstractItem(core_models.TimeStampedModel):
 
@@ -103,6 +104,11 @@ class Room(core_models.TimeStampedModel):
             return "1 bed"
         else:
             return f"{self.beds} beds"
+
+    def get_calendars(self):
+        calendar = Calendar(2022, 8)
+        print(calendar.get_month())
+        return False
 
 class Photo(core_models.TimeStampedModel):
 

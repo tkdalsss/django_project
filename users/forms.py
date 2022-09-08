@@ -69,4 +69,3 @@ class SignUpForm(forms.ModelForm):
         user.set_password(password)
         user.save()
 
-    
