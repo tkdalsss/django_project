@@ -4,6 +4,7 @@ from django_countries.fields import CountryField
 from core import models as core_models
 from users import models as user_models
 from cal import Calendar
+from django.utils import timezone
 
 class AbstractItem(core_models.TimeStampedModel):
 
@@ -106,9 +107,15 @@ class Room(core_models.TimeStampedModel):
             return f"{self.beds} beds"
 
     def get_calendars(self):
-        calendar = Calendar(2022, 8)
-        print(calendar.get_month())
-        return False
+        now = timezone.now()
+        this_year = now.year
+        this_month = now.month
+        next_month = this_month+1
+        if this_month == 12:
+            next_month = 1
+        this_month_cal = Calendar(this_year, this_month)
+        next_month_cal = Calendar(this_year, next_month)
+        return [this_month_cal, next_month_cal]
 
 class Photo(core_models.TimeStampedModel):
 
