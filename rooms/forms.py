@@ -1,5 +1,3 @@
-#from socket import fromshare
-#from tkinter import Widget
 from django import forms
 from django_countries.fields import CountryField
 from . import models
